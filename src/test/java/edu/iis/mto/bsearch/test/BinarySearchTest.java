@@ -70,4 +70,12 @@ public class BinarySearchTest {
         assertThat(result.isFound(), equalTo(true));
         assertThat(result.getPosition(), equalTo(4));
     }
+
+    @Test
+    public void elementNotFoundInSequenceWhenSequenceSizeGreaterThanOne() {
+        int key = 3;
+        int[] seq = {2, 4, 5, 9, 10, 14, 21};
+        SearchResult result = BinarySearch.search(key, seq);
+        assertThat(result.isFound(), equalTo(false));
+    }
 }
