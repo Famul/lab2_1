@@ -26,4 +26,12 @@ public class BinarySearchTest {
         assertThat(result.isFound(), equalTo(false));
     }
 
+    @Test
+    public void elementFoundInFirstPlaceInSequenceWhenSequenceSizeGreaterThanOne() {
+        int key = 2;
+        int[] seq = {2, 4, 3, 9, 0, 1};
+        SearchResult result = BinarySearch.search(key, seq);
+        assertThat(result.isFound(), equalTo(true));
+        assertThat(result.getPosition(), equalTo(1));
+    }
 }
