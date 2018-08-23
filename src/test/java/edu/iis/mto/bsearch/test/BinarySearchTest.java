@@ -18,4 +18,12 @@ public class BinarySearchTest {
         assertThat(result.isFound(), equalTo(true));
     }
 
+    @Test
+    public void elementNotFoundInSequenceWhenSequenceSizeEqualToOne() {
+        int key = 3;
+        int[] seq = {2};
+        SearchResult result = BinarySearch.search(key, seq);
+        assertThat(result.isFound(), equalTo(false));
+    }
+
 }
