@@ -27,6 +27,11 @@ public class BinarySearch {
         if (seq.length == 0) {
             throw new IllegalArgumentException("Sequence size must be greater than zero");
         }
+        for (int i = 1; i < seq.length; i++) {
+            if (seq[i - 1] > seq[i]) {
+                throw new IllegalArgumentException("Sequence must be in ascending order");
+            }
+        }
         while (start <= end) {
             center = (start + end) / 2;
             if (seq[center] == key) {

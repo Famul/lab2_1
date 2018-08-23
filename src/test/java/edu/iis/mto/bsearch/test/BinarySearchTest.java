@@ -2,6 +2,7 @@ package edu.iis.mto.bsearch.test;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -85,8 +86,21 @@ public class BinarySearchTest {
         int[] seq = {};
         try {
             BinarySearch.search(key, seq);
+            fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), equalTo("Sequence size must be greater than zero"));
+        }
+    }
+
+    @Test
+    public void throwExceptionWhenSequenceIsNotInOrder() {
+        int key = 5;
+        int[] seq = {4, 25, 12, 21, 53, 58};
+        try {
+            BinarySearch.search(key, seq);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertThat(e.getMessage(), equalTo("Sequence must be in ascending order"));
 
         }
     }
