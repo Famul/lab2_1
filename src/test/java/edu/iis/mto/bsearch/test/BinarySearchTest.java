@@ -78,4 +78,16 @@ public class BinarySearchTest {
         SearchResult result = BinarySearch.search(key, seq);
         assertThat(result.isFound(), equalTo(false));
     }
+
+    @Test
+    public void throwExceptionWhenSequenceSizeIsEqualToZero() {
+        int key = 5;
+        int[] seq = {};
+        try {
+            BinarySearch.search(key, seq);
+        } catch (IllegalArgumentException e) {
+            assertThat(e.getMessage(), equalTo("Sequence size must be greater than zero"));
+
+        }
+    }
 }
